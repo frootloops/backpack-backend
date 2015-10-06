@@ -12,6 +12,5 @@ class CreateDevices < ActiveRecord::Migration
 
     add_index :devices, :uuid, unique: true
     add_index :devices, :access_token, unique: true
-    add_index :devices, :push_token, unique: true
   end
 end

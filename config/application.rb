@@ -20,8 +20,9 @@ module Backpack
       generate.test_framework :rspec
       generate.view_specs false
     end
+    config.autoload_paths += %W(#{config.root}/app/jobs)
     config.action_controller.action_on_unpermitted_parameters = :raise
     config.active_record.raise_in_transactional_callbacks = true
-    config.active_job.queue_adapter = :delayed_job
+    config.active_job.queue_adapter = :sidekiq
   end
 end

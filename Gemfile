@@ -29,6 +29,7 @@ gem "devise"
 gem "active_model_otp"
 gem "phonelib"
 gem "twilio-ruby"
+gem "sidekiq"
 
 group :development do
   gem "spring"
