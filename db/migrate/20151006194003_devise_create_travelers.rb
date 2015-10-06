@@ -4,8 +4,8 @@ class DeviseCreateTravelers < ActiveRecord::Migration
       t.string  :name
       t.string  :mobile_number
       t.string  :email
-      t.string  :verification_code
-      t.boolean :is_verified
+      t.string  :otp_secret_key
+      t.integer :otp_counter
 
       t.timestamps null: false
     end

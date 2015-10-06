@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 20151006194003) do
     t.string   "name"
     t.string   "mobile_number"
     t.string   "email"
-    t.string   "verification_code"
-    t.boolean  "is_verified"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "otp_secret_key"
+    t.integer  "otp_counter"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "travelers", ["mobile_number"], name: "index_travelers_on_mobile_number", unique: true, using: :btree
