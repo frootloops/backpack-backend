@@ -4,4 +4,8 @@ class Traveler < ActiveRecord::Base
 
   has_many :devices
   validates :mobile_number, uniqueness: true, phone: true
+
+  def device
+    devices.take
+  end
 end
