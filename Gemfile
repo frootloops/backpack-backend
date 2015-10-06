@@ -24,6 +24,7 @@ gem "sass-rails", "~> 5.0"
 gem "simple_form"
 gem "title"
 gem "uglifier"
+gem "actioncable", github: "rails/actioncable"
 
 group :development do
   gem "spring"
