@@ -175,6 +175,7 @@ GEM
     normalize-rails (3.0.3)
     orm_adapter (0.5.0)
     pg (0.18.3)
+    phonelib (0.5.0)
     pry (0.10.2)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -331,6 +332,7 @@ DEPENDENCIES
   newrelic_rpm (>= 3.9.8)
   normalize-rails (~> 3.0.0)
   pg
+  phonelib
   pry-rails
   puma
   rack-canonical-host

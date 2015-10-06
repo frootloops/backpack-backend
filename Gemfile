@@ -27,6 +27,7 @@ gem "uglifier"
 gem "actioncable", github: "rails/actioncable"
 gem "devise"
 gem "active_model_otp"
+gem "phonelib"
 
 group :development do
   gem "spring"
