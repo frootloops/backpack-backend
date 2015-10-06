@@ -25,6 +25,7 @@ gem "simple_form"
 gem "title"
 gem "uglifier"
 gem "actioncable", github: "rails/actioncable"
+gem "devise"
 
 group :development do
   gem "spring"
