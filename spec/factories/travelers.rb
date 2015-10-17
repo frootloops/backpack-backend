@@ -2,6 +2,9 @@ FactoryGirl.define do
   factory :traveler do
     name "Arsen Gasparyan"
     email "to.arsen.gasparyan@gmail.com"
-    mobile_number "+79999808630"
+    phone "+79999808630"
+    device_token { SecureRandom.uuid }
+    access_token { SecureRandom.uuid }
+    push_token { SecureRandom.uuid }
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006201759) do
+ActiveRecord::Schema.define(version: 20151006194003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,32 +32,22 @@ ActiveRecord::Schema.define(version: 20151006201759) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
-  create_table "devices", force: :cascade do |t|
-    t.integer  "traveler_id"
-    t.string   "name"
-    t.string   "uuid"
-    t.string   "access_token"
-    t.string   "push_token"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "devices", ["access_token"], name: "index_devices_on_access_token", unique: true, using: :btree
-  add_index "devices", ["push_token"], name: "index_devices_on_push_token", unique: true, using: :btree
-  add_index "devices", ["traveler_id"], name: "index_devices_on_traveler_id", using: :btree
-  add_index "devices", ["uuid"], name: "index_devices_on_uuid", unique: true, using: :btree
-
   create_table "travelers", force: :cascade do |t|
     t.string   "name"
-    t.string   "mobile_number"
+    t.string   "phone"
     t.string   "email"
     t.string   "otp_secret_key"
     t.integer  "otp_counter"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "encrypted_password", default: "", null: false
+    t.string   "device_token"
+    t.string   "access_token"
+    t.string   "push_token"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
-  add_index "travelers", ["mobile_number"], name: "index_travelers_on_mobile_number", unique: true, using: :btree
+  add_index "travelers", ["access_token"], name: "index_travelers_on_access_token", unique: true, using: :btree
+  add_index "travelers", ["device_token"], name: "index_travelers_on_device_token", unique: true, using: :btree
+  add_index "travelers", ["phone"], name: "index_travelers_on_phone", unique: true, using: :btree
 
-  add_foreign_key "devices", "travelers"
 end

@@ -23,6 +23,8 @@ RSpec.configure do |config|
     stub_const("Twilio::REST::Client", FakeSMS)
     FakeSMS.messages = []
   end
+
+  config.include ActionController::HttpAuthentication::Token
 end
 
 WebMock.disable_net_connect!(allow_localhost: true)
