@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :travelers
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       post 'bonjour', to: 'bonjour#create'

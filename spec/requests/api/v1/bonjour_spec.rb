@@ -2,19 +2,19 @@ require 'spec_helper'
 
 describe Api::V1::BonjourController, type: :request do
   describe "GET #check" do
-    xit "returns 401 error" do
+    it "returns 401 error" do
       get '/api/v1/bonjour/check', {}
       expect(response.status).to eq(401)
 
-      device = create(:device, traveler: create(:traveler))
-      headers = { "Authorization": encode_credentials("fake", uuid: device.uuid) }
+      headers = { "X-Traveler-Device": "FAKE", "X-Traveler-Token": "FAKE" }
       get '/api/v1/bonjour/check', {}, headers
       expect(response.status).to eq(401)
     end
 
-    xit "returns 200 ok" do
-      device = create(:device, traveler: create(:traveler))
-      headers = { "Authorization": encode_credentials(device.access_token, uuid: device.uuid) }
+    it "returns 200 ok" do
+      traveler = create(:traveler)
+      headers = { "X-Traveler-Device": traveler.device_token,
+                  "X-Traveler-Token": traveler.authentication_token }
       get '/api/v1/bonjour/check', {}, headers
       expect(response).to be_success
     end

@@ -1,14 +1,12 @@
 class ApiController < ApplicationController
   protect_from_forgery with: :null_session
-  before_filter :authenticate
-
-  private
-
-  def authenticate
-    authenticate_traveler_by_token! && authenticate_traveler!
+  acts_as_token_authentication_handler_for Traveler, if: ->(controller) do
+    controller.traveler_token_authenticable?
   end
 
-  def authenticate_traveler_by_token!
-    render status: :unauthorized
+  protected
+
+  def traveler_token_authenticable?
+    true
   end
 end
