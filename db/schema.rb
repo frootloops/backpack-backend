@@ -38,15 +38,15 @@ ActiveRecord::Schema.define(version: 20151006194003) do
     t.string   "email"
     t.string   "otp_secret_key"
     t.integer  "otp_counter"
-    t.string   "encrypted_password", default: "", null: false
+    t.string   "encrypted_password",   default: "", null: false
+    t.string   "authentication_token"
     t.string   "device_token"
-    t.string   "access_token"
     t.string   "push_token"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
-  add_index "travelers", ["access_token"], name: "index_travelers_on_access_token", unique: true, using: :btree
+  add_index "travelers", ["authentication_token"], name: "index_travelers_on_authentication_token", unique: true, using: :btree
   add_index "travelers", ["device_token"], name: "index_travelers_on_device_token", unique: true, using: :btree
   add_index "travelers", ["phone"], name: "index_travelers_on_phone", unique: true, using: :btree
 
