@@ -31,6 +31,7 @@ gem "phonelib"
 gem "twilio-ruby"
 gem "sidekiq"
 gem "simple_token_authentication"
+gem "active_model_serializers"
 
 group :development do
   gem "spring"

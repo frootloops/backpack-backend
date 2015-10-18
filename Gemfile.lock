@@ -37,6 +37,8 @@ GEM
     active_model_otp (1.2.0)
       activemodel
       rotp
+    active_model_serializers (0.9.3)
+      activemodel (>= 3.2)
     activejob (4.2.4)
       activesupport (= 4.2.4)
       globalid (>= 0.3.0)
@@ -328,6 +330,7 @@ PLATFORMS
 DEPENDENCIES
   actioncable!
   active_model_otp
+  active_model_serializers
   autoprefixer-rails
   awesome_print
   bourbon (~> 4.2.0)
