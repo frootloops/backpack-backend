@@ -39,8 +39,8 @@ group :development do
   gem "web-console"
   gem "capistrano"
   gem "capistrano-rails"
-  gem "capistrano3-puma"
   gem "capistrano-rbenv"
+  gem "foreman"
 end
 
 group :development, :test do
