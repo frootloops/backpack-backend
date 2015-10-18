@@ -10,6 +10,7 @@ class DeviseCreateTravelers < ActiveRecord::Migration
       t.string  :authentication_token
       t.string  :device_token
       t.string  :push_token, null: false, default: ""
+      t.string  :locale, null: false, default: "en_US"
 
       t.timestamps null: false
     end

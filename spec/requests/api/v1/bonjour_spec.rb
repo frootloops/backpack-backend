@@ -25,9 +25,9 @@ describe Api::V1::BonjourController, type: :request do
     context "with new credential" do
       it "creates a traveler" do
         headers = { "X-Traveler-Device": "DEVICE UUID" }
-        post '/api/v1/bonjour', { phone: '+79999808630' }, headers
+        post '/api/v1/bonjour', {}, headers
         expect(response).to have_http_status(:created)
-        expect(Traveler.find_by(phone: "+79999808630")).to be_kind_of(Traveler)
+        expect(Traveler.find_by(device_token: "DEVICE UUID")).to be_kind_of(Traveler)
         # code = FakeSMS.messages.last.body[/\d+/]
       end
     end
