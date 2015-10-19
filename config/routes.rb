@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "api/v1/bonjour#check"
   devise_for :travelers
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
