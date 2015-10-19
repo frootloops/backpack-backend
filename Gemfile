@@ -37,10 +37,11 @@ group :development do
   gem "spring"
   gem "spring-commands-rspec"
   gem "web-console"
-  gem "capistrano"
-  gem "capistrano-rails"
-  gem "capistrano-rbenv"
-  gem "foreman"
+  gem 'capistrano',         require: false
+  gem 'capistrano-rbenv',   require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
 end
 
 group :development, :test do
