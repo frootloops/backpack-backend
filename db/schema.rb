@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006194003) do
+ActiveRecord::Schema.define(version: 20151021201943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "traveler_id"
+    t.string   "title",       default: "", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "conversations", ["traveler_id"], name: "index_conversations_on_traveler_id", using: :btree
 
   create_table "travelers", force: :cascade do |t|
     t.string   "name",                 default: "",      null: false
@@ -34,4 +43,5 @@ ActiveRecord::Schema.define(version: 20151006194003) do
   add_index "travelers", ["authentication_token"], name: "index_travelers_on_authentication_token", unique: true, using: :btree
   add_index "travelers", ["device_token"], name: "index_travelers_on_device_token", unique: true, using: :btree
 
+  add_foreign_key "conversations", "travelers"
 end
