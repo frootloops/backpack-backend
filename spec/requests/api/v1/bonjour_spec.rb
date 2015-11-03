@@ -24,10 +24,10 @@ describe Api::V1::BonjourController, type: :request do
   describe "POST #bonjour" do
     context "with new credential" do
       it "creates a traveler" do
-        headers = { "X-Traveler-Device": "DEVICE UUID" }
+        headers = { "X-Traveler-Device": "UUID" }
         post '/api/v1/bonjour', {}, headers
         expect(response).to have_http_status(:created)
-        expect(Traveler.find_by(device_token: "DEVICE UUID")).to be_kind_of(Traveler)
+        expect(Traveler.find_by(device_token: "UUID")).to be_kind_of(Traveler)
       end
     end
 
