@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :conversation do
     traveler { create(:traveler) }
-    title "Chat #1"
+    title { "Conversation with #{traveler.name}" }
   end
 end

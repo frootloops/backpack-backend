@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :message do
     conversation { create(:conversation) }
-    body "Message body"
+    message { create(:message_text) }
   end
 end
